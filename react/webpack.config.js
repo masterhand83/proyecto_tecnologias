@@ -19,6 +19,7 @@ const common = {
         compress:true,
         hot: true,
         port:4000,
+        historyApiFallback:true,
         // publicPath: '/',
     },
     entry: {
