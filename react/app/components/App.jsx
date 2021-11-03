@@ -18,14 +18,14 @@ export default class App extends React.Component {
                             <Link to="/login">Login</Link>
                         </li>
                         <li>
-                            <Link to="/">Menu</Link>
+                            <Link to="/home">Menu</Link>
                         </li>
                         <li>
                             <Link to="/ejercicio">Ejercicio</Link>
                         </li>
                     </ul>
                     <Switch>
-                        <Route exact path="/" component={Menu} />
+                        <Route path="/home" component={Menu} />
                         <Route path="/login" component={Login} />
                         <Route path="/ejercicio" component={Ejercicio} />
                         <Route path="*" component={NotFound} />
