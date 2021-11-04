@@ -1,6 +1,5 @@
 import React from "react"
 import { Col, Row } from "react-bootstrap"
-import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import LoginForm from "./LoginComponents/LoginForm"
@@ -10,9 +9,8 @@ export default class Login extends React.Component {
     }
     render(){
         return(
-            <Container fluid>
-                <Row>
-                    <Col></ Col>
+            <Container fluid className="d-flex vh-100">
+                <Row className="m-auto">
                     <Col className="my-auto">
                         <Card className="text-center">
                             <Card.Header>Inicio de Sesion</ Card.Header>
@@ -21,7 +19,6 @@ export default class Login extends React.Component {
                             </ Card.Body>
                         </Card>
                     </Col>
-                    <Col></Col>
                 </Row>
             </Container>
         )
