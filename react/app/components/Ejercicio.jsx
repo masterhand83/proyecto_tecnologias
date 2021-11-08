@@ -12,6 +12,7 @@ export default class Ejercicio extends React.Component {
     render(){
         return(
             <h3>{this.state.ejercicioID}</h3>
+
         )
     }
 }
