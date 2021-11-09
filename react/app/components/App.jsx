@@ -1,5 +1,6 @@
 import React from 'react'
-import {BrowserRouter as Router, Route,Switch, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
+import EditEjercicio from './EditEjercicio'
 import Ejercicio from './Ejercicio'
 import Login from './Login'
 import Menu from './Menu'
@@ -23,11 +24,15 @@ export default class App extends React.Component {
                         <li>
                             <Link to="/ejercicio">Ejercicio</Link>
                         </li>
+                        <li>
+                            <Link to="/editarEjercicio">Editar Ejercicio</Link>
+                        </li>
                     </ul>
                     <Switch>
                         <Route path="/home" component={Menu} />
                         <Route path="/login" component={Login} />
                         <Route path="/ejercicio" component={Ejercicio} />
+                        <Route path="/editarEjercicio" component={EditEjercicio}/>
                         <Route path="*" component={NotFound} />
                     </Switch>
                 </div>

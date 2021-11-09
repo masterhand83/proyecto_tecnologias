@@ -1,9 +1,5 @@
 import React from "react"
-import faker from 'faker'
-import { Col, Row, Table } from "react-bootstrap"
-import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
+import { Table } from "react-bootstrap"
 import MenuRow from "./MenuRow"
 export default class MenuTable extends React.Component {
     constructor(props){
@@ -12,7 +8,6 @@ export default class MenuTable extends React.Component {
             ejercicios: props.data
         }
     }
-
 
     render(){
         let data = this.state.ejercicios

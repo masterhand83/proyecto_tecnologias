@@ -28,7 +28,6 @@ export default class Menu extends React.Component {
                 <Row>
                     <Col>
                         <MenuTable data={data} />
-
                     </Col>
                 </Row>
             </Container>

@@ -13,6 +13,10 @@ class MenuRow extends React.Component {
         this.props.history.push("/ejercicio?id="+id)
     }
 
+    editarEjercicio = (id) => {
+        this.props.history.push("/editarEjercicio?id="+id)
+    }
+
     render(){
         let data = this.state.ejercicio
         return(
@@ -24,7 +28,8 @@ class MenuRow extends React.Component {
                         Ver
                     </Button>
                     <Button variant="warning"
-                            className="mx-3">
+                            className="mx-3"
+                            onClick={() => this.editarEjercicio(data.id)}>
                         Editar
                     </Button>
                     <Button variant="outline-danger">
