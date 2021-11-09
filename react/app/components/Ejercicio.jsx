@@ -1,5 +1,6 @@
 import  React  from "react";
-
+import {Container, Row, Col} from 'react-bootstrap'
+import EjercicioAnimador from "./EjercicioComponents/EjercicioAnimador";
 export default class Ejercicio extends React.Component {
     constructor(props){
         super(props)
@@ -11,7 +12,13 @@ export default class Ejercicio extends React.Component {
     }
     render(){
         return(
-            <h3>{this.state.ejercicioID}</h3>
+            <Container>
+                <Row>
+                    <Col>
+                        <EjercicioAnimador />
+                    </Col>
+                </Row>
+            </Container>
 
         )
     }
