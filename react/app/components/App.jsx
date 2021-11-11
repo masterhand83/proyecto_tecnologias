@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
+import CrearEjercicio from './CrearEjercicio'
 import EditEjercicio from './EditEjercicio'
 import Ejercicio from './Ejercicio'
 import Login from './Login'
@@ -27,10 +28,14 @@ export default class App extends React.Component {
                         <li>
                             <Link to="/editarEjercicio">Editar Ejercicio</Link>
                         </li>
+                        <li>
+                            <Link to="/crear">Editar Ejercicio</Link>
+                        </li>
                     </ul>
                     <Switch>
                         <Route path="/home" component={Menu} />
                         <Route path="/login" component={Login} />
+                        <Route path="/crear" component={CrearEjercicio} />
                         <Route path="/ejercicio" component={Ejercicio} />
                         <Route path="/editarEjercicio" component={EditEjercicio}/>
                         <Route path="*" component={NotFound} />

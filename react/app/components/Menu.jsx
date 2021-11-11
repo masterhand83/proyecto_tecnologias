@@ -1,7 +1,6 @@
 import React from "react"
 import faker from 'faker'
-import { Col, Row, Table } from "react-bootstrap"
-import Card from 'react-bootstrap/Card'
+import { Col, Row, Table, Button } from "react-bootstrap"
 import Container from 'react-bootstrap/Container'
 import MenuTable from "./MenuComponents/MenuTable"
 export default class Menu extends React.Component {
@@ -19,12 +18,24 @@ export default class Menu extends React.Component {
             },
         ]}
     }
+    goToCrearEjercicio = () => {
+        this.props.history.push("/crear")
+    }
 
     render(){
         let data = this.state.ejercicios
         console.log(data)
         return(
             <Container>
+                <Row>
+                    <Col>
+                        <Button
+                        variant="success"
+                        onClick={this.goToCrearEjercicio}>
+                            Crear Simulacion
+                        </Button>
+                    </Col>
+                </Row>
                 <Row>
                     <Col>
                         <MenuTable data={data} />

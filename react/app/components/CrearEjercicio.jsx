@@ -1,9 +1,12 @@
+
+import React from "react";
+import { Col, Row } from "react-bootstrap"
 import Container from 'react-bootstrap/Container'
 import { withRouter } from "react-router"
 import { Form } from "react-bootstrap";
 import Button from 'react-bootstrap/Button'
 
-class EditEjercicio extends React.Component {
+class CrearEjercicio extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -40,7 +43,7 @@ class EditEjercicio extends React.Component {
             <Form method="post" onSubmit={this.submitInfo}>
                 <Row>
                     <Col>
-                        <h1>Edicion de simulacion</h1>
+                        <h1>Crear simulacion</h1>
                     </Col>
                 </Row>
                 <Row>
@@ -134,8 +137,8 @@ class EditEjercicio extends React.Component {
                 </Row>
                 <Row className="mt-4">
                     <Col xs={6}>
-                        <Button className="mx-3" type="submit" size="lg">
-                            Editar
+                        <Button variant="success" className="mx-3" type="submit" size="lg">
+                            Crear
                         </Button>
                         <Button
                             type="submit"
@@ -152,4 +155,4 @@ class EditEjercicio extends React.Component {
     }
 }
 
-export default withRouter(EditEjercicio)
+export default withRouter(CrearEjercicio)
