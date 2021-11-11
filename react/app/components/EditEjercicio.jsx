@@ -11,8 +11,10 @@ class EditEjercicio extends React.Component {
         this.state = {
             name:'hello',
             pass:'',
-            posx: 0,
-            posy: 0
+            posx: 310,
+            posy: 30,
+            velx: 3,
+            vely: 4
         }
         this.handleChange = this.handleChange.bind(this)
         this.submitInfo = this.submitInfo.bind(this)
@@ -27,14 +29,22 @@ class EditEjercicio extends React.Component {
     handleFileInput = (event) => {
         console.log(event.target.files)
     }
+    returnToMenu = () => {
+        this.props.history.push("/home")
+    }
     submitInfo(event) {
         event.preventDefault()
         console.log(event.target.files)
     }
     render(){
         return(
-        <Container className="vh-100 m-auto">
+        <Container >
             <Form method="post" onSubmit={this.submitInfo}>
+                <Row>
+                    <Col>
+                        <h1>Edicion de simulacion</h1>
+                    </Col>
+                </Row>
                 <Row>
                     <Col>
                         <Form.Group>
@@ -49,7 +59,7 @@ class EditEjercicio extends React.Component {
                         </Form.Group>
                     </Col>
                 </Row>
-                <Row>
+                <Row className="mt-3">
                     <Col>
                         <h4>Posicion inicial</h4>
                     </ Col>
@@ -80,7 +90,7 @@ class EditEjercicio extends React.Component {
                         </Form.Group>
                     </ Col>
                 </Row>
-                <Row>
+                <Row className="mt-3">
                     <Col>
                         <h4>Velocidad inicial</h4>
                     </ Col>
@@ -93,7 +103,7 @@ class EditEjercicio extends React.Component {
                                 name="name"
                                 type="number"
                                 placeholder="usuario"
-                                value={this.state.posx}
+                                value={this.state.velx}
                                 onChange={this.handleChange}
                             />
                         </Form.Group>
@@ -105,13 +115,13 @@ class EditEjercicio extends React.Component {
                                 name="name"
                                 type="number"
                                 placeholder="usuario"
-                                value={this.state.posy}
+                                value={this.state.vely}
                                 onChange={this.handleChange}
                             />
                         </Form.Group>
                     </ Col>
                 </Row>
-                <Row>
+                <Row className="mt-3">
                     <Col>
                         <Form.Group>
                             <Form.Label>Logo Ejercicio</Form.Label>
@@ -122,9 +132,20 @@ class EditEjercicio extends React.Component {
                                 onChange={this.handleFileInput}
                             />
                         </Form.Group>
-                        <div className="d-grid gap-2 mt-3">
-                            <Button type="submit">Iniciar Sesión</Button>
-                        </div>
+                    </Col>
+                </Row>
+                <Row className="mt-4">
+                    <Col xs={6}>
+                        <Button className="mx-3" type="submit" size="lg">
+                            Editar
+                        </Button>
+                        <Button
+                            type="submit"
+                            variant="outline-danger"
+                            size="md"
+                            onClick={this.returnToMenu}>
+                                Cancelar
+                        </Button>
                     </Col>
                 </Row>
             </Form>
