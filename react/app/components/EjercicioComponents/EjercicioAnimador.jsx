@@ -8,14 +8,14 @@ export default class EjercicioAnimador extends React.Component { constructor(pro
             x: 300,
             y: 300,
             spx: 0.4,
-            spy: 0.2
+            spy: 0.2,
         }
     }
     setup = (p5, canvasParentRef) => {
         let xyz = p5.createCanvas(500, 500).parent(canvasParentRef)
         let canvasX =(p5.windowWidth - p5.width)/2
         let canvasY =(p5.windowHeight - p5.height)/2
-        xyz.position(canvasX, canvasY)
+        // xyz.position(canvasX, canvasY)
 
     }
     draw = (p5) => {
@@ -24,7 +24,6 @@ export default class EjercicioAnimador extends React.Component { constructor(pro
         p5.strokeWeight(4)
         p5.noFill()
         p5.ellipse(this.state.x, this.state.y, 60, 60)
-
         this.setState({
             x: this.state.x + this.state.spx,
             y: this.state.y + this.state.spy

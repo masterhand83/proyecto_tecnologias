@@ -1,6 +1,7 @@
+import React from 'react';
 import Container from 'react-bootstrap/Container'
-import { withRouter } from "react-router"
-import { Form } from "react-bootstrap";
+import { withRouter } from "react-router-dom"
+import { Form, Row, Col} from "react-bootstrap";
 import Button from 'react-bootstrap/Button'
 
 class EditEjercicio extends React.Component {
