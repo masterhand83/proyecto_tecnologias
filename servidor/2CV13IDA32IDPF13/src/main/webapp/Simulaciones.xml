@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<TABLASIMULACIONES>
+    <SIMULACION ID="4266132f-8a61-4072-be5c-8a4c32ee0575">
+        <PELOTAS>
+            <PELOTA COLOR="FFFFFF">
+                <VECTOR2D nombre="pos_inicial" x="300.0" y="150.0"/>
+                <VECTOR2D nombre="vel_inicial" x="3.0" y="1.0"/>
+            </PELOTA>
+        </PELOTAS>
+    </SIMULACION>
+</TABLASIMULACIONES>
