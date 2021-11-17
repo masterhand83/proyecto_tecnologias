@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 
 <TABLASIMULACIONES>
-    <SIMULACION ID="4266132f-8a61-4072-be5c-8a4c32ee0575">
+    <SIMULACION ID="4266132f-8a61-4072-be5c-8a4c32ee0575" Nombre="Simulacion1">
         <PELOTAS>
             <PELOTA COLOR="FFFFFF">
                 <VECTOR2D nombre="pos_inicial" x="300.0" y="150.0"/>

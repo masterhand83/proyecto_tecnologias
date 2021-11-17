@@ -16,6 +16,14 @@ const common = {
         static: {
             directory: PATHS.build,
         },
+        proxy:{
+            "/api":{
+                target: "http://localhost:8080"
+            }
+        },
+        headers: {
+        "Access-Control-Allow-Origin": "*"
+        },
         compress:true,
         hot: true,
         port:4000,

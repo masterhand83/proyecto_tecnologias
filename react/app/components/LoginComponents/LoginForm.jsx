@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { Form } from "react-bootstrap";
 import Button from 'react-bootstrap/Button'
 import { Redirect } from "react-router-dom";
@@ -19,10 +20,13 @@ export default class LoginForm extends React.Component {
     submitInfo(event) {
         event.preventDefault()
         const {name, pass} = this.state;
-        if (name === "admin" && pass === "admin"){
-            console.log(this.props.history)
-            this.props.history.push('/home')
-        }
+        axios.post("http://localhost:8080/ComprobarUsuario", {name, pass})
+            .then(response => {
+                let isValid = response.data
+                if (isValid){
+                    this.props.history.push('/home')
+                }
+            })
     }
     render(){
         return(
