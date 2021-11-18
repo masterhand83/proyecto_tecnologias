@@ -1,3 +1,4 @@
+import axios from "axios"
 import React from "react"
 import faker from 'faker'
 import { Col, Row, Table, Button } from "react-bootstrap"
@@ -20,6 +21,8 @@ export default class Menu extends React.Component {
     }
     goToCrearEjercicio = () => {
         this.props.history.push("/crear")
+    }
+    componentDidMount() {
     }
 
     render(){
