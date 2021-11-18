@@ -47,7 +47,6 @@ public class ComprobarUsuario extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/json");
         boolean isValid = false;
-        StringBuffer jb = new StringBuffer();
         String body  = IOUtils.toString(request.getReader());
         JSONObject json = new JSONObject(body);
         Gson gson = new Gson();
@@ -64,6 +63,7 @@ public class ComprobarUsuario extends HttpServlet {
                     break;
                 }
             }
+            out.println(gson.toJson(isValid));
         }
     }
 
