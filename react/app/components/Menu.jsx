@@ -8,26 +8,20 @@ export default class Menu extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            ejercicios: [
-            {
-                id: faker.datatype.uuid(),
-                name: "pelotas 1"
-            },
-            {
-                id: faker.datatype.uuid(),
-                name: "pelotas 2"
-            },
-        ]}
+            data:[]
+        }
     }
     goToCrearEjercicio = () => {
         this.props.history.push("/crear")
     }
-    componentDidMount() {
+    componentDidMount = () => {
+        axios.get("http://localhost:8080/Simulaciones")
+            .then((response) => {
+                this.setState({data: response.data})
+            })
     }
 
     render(){
-        let data = this.state.ejercicios
-        console.log(data)
         return(
             <Container>
                 <Row>
@@ -41,7 +35,7 @@ export default class Menu extends React.Component {
                 </Row>
                 <Row>
                     <Col>
-                        <MenuTable data={data} />
+                        <MenuTable data={this.state.data} />
                     </Col>
                 </Row>
             </Container>

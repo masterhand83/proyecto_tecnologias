@@ -4,9 +4,6 @@ import {withRouter} from "react-router-dom"
 class MenuRow extends React.Component {
     constructor(props){
         super(props)
-        this.state = {
-            ejercicio: props.data
-        }
     }
 
     verEjercicio = (id) => {
@@ -18,10 +15,10 @@ class MenuRow extends React.Component {
     }
 
     render(){
-        let data = this.state.ejercicio
+        let data = this.props.data
         return(
             <tr>
-                <td>{data.name}</td>
+                <td>{data.nombre}</td>
                 <td>
                     <Button variant="success"
                         onClick={() => this.verEjercicio(data.id)}>

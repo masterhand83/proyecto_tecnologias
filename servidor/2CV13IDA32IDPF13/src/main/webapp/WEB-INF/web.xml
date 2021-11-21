@@ -16,9 +16,17 @@
         <servlet-name>ComprobarUsuario</servlet-name>
         <servlet-class>usuarios.ComprobarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Simulaciones</servlet-name>
+        <servlet-class>simulacion.Simulaciones</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ComprobarUsuario</servlet-name>
         <url-pattern>/ComprobarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Simulaciones</servlet-name>
+        <url-pattern>/Simulaciones</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

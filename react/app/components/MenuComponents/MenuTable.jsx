@@ -4,13 +4,10 @@ import MenuRow from "./MenuRow"
 export default class MenuTable extends React.Component {
     constructor(props){
         super(props)
-        this.state = {
-            ejercicios: props.data
-        }
     }
 
     render(){
-        let data = this.state.ejercicios
+        let data = this.props.data
         return(
             <Table>
                 <thead>
