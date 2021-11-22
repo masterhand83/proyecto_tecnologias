@@ -76,7 +76,11 @@ private String nombreArchivo;
                 Double.parseDouble(e.getAttributeValue("Y"))
         );
     }
-
+    
+    private void crearSimulacion(Simulacion s) throws IOException {
+        updateFile();
+    }
+    
     
     private void updateFile() throws IOException {
         XMLOutputter output = new XMLOutputter();
