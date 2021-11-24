@@ -25,4 +25,17 @@ public class Simulacion {
     public void addPelota(Pelota p){
         this.pelotas.add(p);
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public List<Pelota> getPelotas() {
+        return pelotas;
+    }
+    
 }

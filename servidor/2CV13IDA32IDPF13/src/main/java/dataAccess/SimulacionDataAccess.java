@@ -77,7 +77,36 @@ private String nombreArchivo;
         );
     }
     
-    private void crearSimulacion(Simulacion s) throws IOException {
+    public void crearSimulacion(Simulacion s) throws IOException {
+        try {
+            Element simulacionElement = new Element("SIMULACION");
+            Element pelotasElement = new Element("PELOTAS");
+            
+            simulacionElement.setAttribute("ID", s.getId());
+            simulacionElement.setAttribute("NOMBRE", s.getNombre());
+            
+            for(Pelota p: s.getPelotas()){
+                Element pelotaElement = new Element("PELOTA");
+                pelotaElement.setAttribute("COLOR", p.getColor());
+                Element posElement = new Element("POSINICIAL");
+                posElement.setAttribute("X", String.valueOf(p.getPosicionInicial().getX()));
+                posElement.setAttribute("Y", String.valueOf(p.getPosicionInicial().getY()));
+                
+                Element velElement = new Element("VELINICIAL");
+                velElement.setAttribute("X", String.valueOf(p.getVelocidadInicial().getX()));
+                velElement.setAttribute("Y", String.valueOf(p.getVelocidadInicial().getY()));
+                
+                pelotaElement.addContent(posElement);
+                pelotaElement.addContent(velElement);
+                
+                pelotasElement.addContent(pelotaElement);
+            }
+            simulacionElement.addContent(pelotasElement);
+            root.addContent(simulacionElement);
+            
+        } catch (Exception ex) {
+             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
         updateFile();
     }
     

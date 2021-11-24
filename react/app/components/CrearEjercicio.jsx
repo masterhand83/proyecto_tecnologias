@@ -1,17 +1,15 @@
-
+import axios from 'axios'
 import React from "react";
 import { Col, Row, Form, InputGroup } from "react-bootstrap"
 import Container from 'react-bootstrap/Container'
 import { withRouter } from "react-router"
 import Button from 'react-bootstrap/Button'
-import CreadorPelotas from "./CrearEjercicio/CreadorPelotas";
 
 class CrearEjercicio extends React.Component {
     constructor(props){
         super(props)
         this.state = {
             name:'Simulacion prueba',
-            pass:'',
             pelotas:[]
         }
         this.handleChange = this.handleChange.bind(this)
@@ -43,15 +41,15 @@ class CrearEjercicio extends React.Component {
         const pelotas = this.state.pelotas
         const pelota =  pelotas[idx]
         const name = event.target.name
-        const value = parseFloat(event.target.value)
+        const value = event.target.value
         if (name === "posx"){
-            pelota.x = value !== NaN? value: 0
+            pelota.x = value
         } else if (name === "posy") {
-            pelota.y = value !== NaN? value: 0
+            pelota.y = value
         } else if (name === "velx") {
-            pelota.velx = value !== NaN? value: 0
+            pelota.velx = value
         } else if (name === "vely") {
-            pelota.vely = value !== NaN? value: 0
+            pelota.vely = value
         }
         pelotas[idx] = pelota
         this.setState({pelotas})
@@ -59,7 +57,7 @@ class CrearEjercicio extends React.Component {
     }
     handleFileInput = (event) => {
         console.log(event.target.files)
-        this.setState({icon: event.target.files})
+        this.setState({icon: event.target.files[0]})
     }
     returnToMenu = () => {
         this.props.history.push("/home")
@@ -67,6 +65,17 @@ class CrearEjercicio extends React.Component {
     submitInfo(event) {
         event.preventDefault()
         console.log(this.state)
+        let data = new FormData()
+        data.append('icono', this.state.icon)
+        data.append('name', this.state.name)
+        data.append('pelotas', JSON.stringify(this.state.pelotas))
+        axios.post('http://localhost:8080/Simulacion', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then((response) => {
+            console.log(response)
+        })
     }
     render(){
         return(

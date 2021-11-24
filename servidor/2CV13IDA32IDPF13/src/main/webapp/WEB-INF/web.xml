@@ -18,11 +18,11 @@
     </servlet>
     <servlet>
         <servlet-name>Simulaciones</servlet-name>
-        <servlet-class>simulacion.Simulaciones</servlet-class>
+        <servlet-class>sim.Simulaciones</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Simulacion</servlet-name>
-        <servlet-class>simulacion.Simulacion</servlet-class>
+        <servlet-class>sim.SimulacionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ComprobarUsuario</servlet-name>
