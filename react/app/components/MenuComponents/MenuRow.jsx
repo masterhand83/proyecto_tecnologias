@@ -1,9 +1,21 @@
+import axios from "axios"
 import React from "react"
 import Button from 'react-bootstrap/Button'
 import {withRouter} from "react-router-dom"
 class MenuRow extends React.Component {
     constructor(props){
         super(props)
+    }
+    eliminarEjercicio = (id) => {
+        axios.delete("http://localhost:8080/Simulacion",{
+            data: {
+                id
+            }
+        }).then((res) => {
+            if(res.status === 200){
+                this.props.onDelete(true, id);
+            }
+        })
     }
 
     verEjercicio = (id) => {
@@ -29,7 +41,9 @@ class MenuRow extends React.Component {
                             onClick={() => this.editarEjercicio(data.id)}>
                         Editar
                     </Button>
-                    <Button variant="outline-danger">
+                    <Button
+                            variant="outline-danger"
+                            onClick={() => this.eliminarEjercicio(data.id)}>
                         eliminar
                     </Button>
                 </td>

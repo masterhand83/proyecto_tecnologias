@@ -19,7 +19,7 @@ export default class MenuTable extends React.Component {
                 <tbody>
                     {
                         data.map((ej) => {
-                            return (<MenuRow key={ej.id} data={ej} />)
+                            return (<MenuRow onDelete={this.props.onDelete} key={ej.id} data={ej} />)
                         })
                     }
                 </tbody>

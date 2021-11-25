@@ -74,7 +74,10 @@ class CrearEjercicio extends React.Component {
                 'Content-Type': 'multipart/form-data'
             }
         }).then((response) => {
-            console.log(response)
+            console.log(response.data)
+            if (response.data){
+                this.props.history.push("/home")
+            }
         })
     }
     render(){

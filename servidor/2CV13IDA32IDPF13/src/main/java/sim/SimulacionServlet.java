@@ -5,6 +5,7 @@
  */
 package sim;
 
+import com.google.gson.Gson;
 import dataAccess.MultipartFormAccess;
 import dataAccess.SimulacionDataAccess;
 import entidades.Pelota;
@@ -19,6 +20,7 @@ import entidades.Simulacion;
 import entidades.Vector2D;
 import java.util.Iterator;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -103,9 +105,22 @@ public class SimulacionServlet extends HttpServlet {
         }
         simData.crearSimulacion(sim);
         try (PrintWriter out = response.getWriter()) {
-            
+            out.println((new Gson()).toJson(sim));
         }
     }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.setContentType("application/json");
+        String body  = IOUtils.toString(req.getReader());
+        JSONObject json = new JSONObject(body);
+        SimulacionDataAccess simData = new SimulacionDataAccess(getServletContext().getRealPath("/"));
+        simData.deleteSimulacion(json.getString("id"));
+        try (PrintWriter out = res.getWriter()) {
+            out.println("{\"h\":203}");
+        }
+    }
+    
 
     /**
      * Returns a short description of the servlet.

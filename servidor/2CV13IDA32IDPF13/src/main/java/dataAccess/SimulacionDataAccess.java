@@ -110,6 +110,21 @@ private String nombreArchivo;
         updateFile();
     }
     
+    public void deleteSimulacion(String id){
+        try {
+            List<Element> simulaciones = root.getChildren();
+           
+            for(Element sim: simulaciones){
+                if (sim.getAttributeValue("ID").equals(id)) {
+                    sim.detach();
+                    break;
+                }
+            }
+            updateFile();
+        } catch (Exception e) {
+        }
+    }
+    
     
     private void updateFile() throws IOException {
         XMLOutputter output = new XMLOutputter();

@@ -20,6 +20,10 @@ export default class Menu extends React.Component {
                 this.setState({data: response.data})
             })
     }
+    onDelete = (status, id) => {
+        let newData = this.state.data.filter((sim) => sim.id !== id)
+        this.setState({data: newData})
+    }
 
     render(){
         return(
@@ -35,7 +39,7 @@ export default class Menu extends React.Component {
                 </Row>
                 <Row>
                     <Col>
-                        <MenuTable data={this.state.data} />
+                        <MenuTable onDelete={this.onDelete} data={this.state.data} />
                     </Col>
                 </Row>
             </Container>
