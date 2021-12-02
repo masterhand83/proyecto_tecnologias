@@ -39,6 +39,7 @@ public class MultipartFormAccess {
     
     public boolean upload(HttpServletRequest req){
         if (!ServletFileUpload.isMultipartContent(req)){
+            System.out.println(req.getHeader("content-type"));
             System.out.println("FORM IS NOT MULTIPART");
             return false;
         }

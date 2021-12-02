@@ -47,6 +47,14 @@ private String nombreArchivo;
         }
         return simulaciones;
     }
+    public Simulacion getSimulacion(String id) {
+        for (Element hijo : this.root.getChildren()) {
+            if (hijo.getAttributeValue("ID").equals(id)){
+                return this.extraerSimulacion(hijo);
+            }
+        }
+        return new Simulacion("","");
+    }
     
     private Simulacion extraerSimulacion(Element e){
         Simulacion s = new Simulacion(
@@ -124,8 +132,15 @@ private String nombreArchivo;
         } catch (Exception e) {
         }
     }
-    
-    
+    public void updateSimulacion(Simulacion sim) {
+    try {
+        deleteSimulacion(sim.getId());
+        crearSimulacion(sim);
+    } catch (IOException ex) {
+        Logger.getLogger(SimulacionDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+    }    
     private void updateFile() throws IOException {
         XMLOutputter output = new XMLOutputter();
         output.setFormat(Format.getPrettyFormat());

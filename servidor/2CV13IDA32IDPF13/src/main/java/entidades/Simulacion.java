@@ -5,22 +5,27 @@
  */
 package entidades;
 
+import com.google.gson.Gson;
 import java.util.List;
 import entidades.Pelota;
 import java.util.ArrayList;
+
 /**
  *
  * @author comrade
  */
 public class Simulacion {
-    String id;
-    String nombre;
-    List<Pelota> pelotas;
+    private String id;
+    private String nombre;
+    private List<Pelota> pelotas;
 
     public Simulacion(String id, String nombre) {
         this.id = id;
         this.nombre = nombre;
         this.pelotas = new ArrayList<>();
+    }
+    public void setPelota(List<Pelota> pelotas) {
+        this.pelotas = pelotas;
     }
     public void addPelota(Pelota p){
         this.pelotas.add(p);
@@ -37,5 +42,12 @@ public class Simulacion {
     public List<Pelota> getPelotas() {
         return pelotas;
     }
+
+    @Override
+    public String toString() {
+        return (new Gson()).toJson(this);
+    }
+    
+    
     
 }

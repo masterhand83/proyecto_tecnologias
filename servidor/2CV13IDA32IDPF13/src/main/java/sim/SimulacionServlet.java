@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import entidades.Simulacion;
 import entidades.Vector2D;
+import java.util.Enumeration;
 import java.util.Iterator;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
@@ -46,19 +47,16 @@ public class SimulacionServlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("application/json");
+        System.out.println(request.getParameter("id"));
+        SimulacionDataAccess simData = new SimulacionDataAccess(getServletContext().getRealPath("/"));
+        Simulacion sim = simData.getSimulacion(request.getParameter("id"));
+        try (PrintWriter out = response.getWriter()) {
+            out.println((new Gson()).toJson(sim));
+        }
     }
 
     /**
@@ -120,6 +118,46 @@ public class SimulacionServlet extends HttpServlet {
             out.println("{\"h\":203}");
         }
     }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.setContentType("application/json");
+        Simulacion sim;
+        SimulacionDataAccess simData = new SimulacionDataAccess(getServletContext().getRealPath("/"));
+        MultipartFormAccess files = new MultipartFormAccess(getServletContext().getRealPath("/"));
+        files.upload(req);
+        HashMap<String, String> params = files.getParams();
+        System.out.println();
+//        sim = new Simulacion(
+//                UUID.randomUUID().toString(),
+//                params.get("name")
+//        );
+//        JSONArray json1 = new JSONArray(params.get("pelotas"));
+//        Iterator<Object> i = json1.iterator();
+//        while(i.hasNext()){
+//            JSONObject obj = (JSONObject)i.next();
+//            Vector2D posicion = new Vector2D(
+//                    obj.getDouble("x"),
+//                    obj.getDouble("y")
+//            );
+//            Vector2D velocidad = new Vector2D(
+//                    obj.getDouble("velx"),
+//                    obj.getDouble("vely")
+//            );
+//            
+//            Pelota p = new Pelota(
+//                    posicion,
+//                    velocidad,
+//                    "#FFFFFF"
+//            );
+//            sim.addPelota(p);
+//        }
+//        simData.updateSimulacion(sim);
+        try (PrintWriter out = res.getWriter()) {
+            //out.println((new Gson()).toJson(sim));
+        }
+    }
+    
     
 
     /**

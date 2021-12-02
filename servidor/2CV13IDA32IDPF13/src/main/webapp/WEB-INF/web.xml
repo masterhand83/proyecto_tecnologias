@@ -24,6 +24,10 @@
         <servlet-name>Simulacion</servlet-name>
         <servlet-class>sim.SimulacionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditarSimServlet</servlet-name>
+        <servlet-class>sim.EditarSimServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ComprobarUsuario</servlet-name>
         <url-pattern>/ComprobarUsuario</url-pattern>
@@ -35,6 +39,10 @@
     <servlet-mapping>
         <servlet-name>Simulacion</servlet-name>
         <url-pattern>/Simulacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarSimServlet</servlet-name>
+        <url-pattern>/EditarSimulacion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
