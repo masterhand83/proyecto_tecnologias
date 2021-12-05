@@ -1,6 +1,5 @@
 import axios from "axios"
 import React from "react"
-import faker from 'faker'
 import { Col, Row, Table, Button } from "react-bootstrap"
 import Container from 'react-bootstrap/Container'
 import MenuTable from "./MenuComponents/MenuTable"
